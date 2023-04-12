@@ -2,7 +2,7 @@
 import os
 # DEFINISCO DELLE VARIABILI USATE NELL FUNZIONI DI SOLITO IN MAIUSCOLO
 
-FILEPATH= "files/todos.txt"
+FILEPATH= "files/items.txt"
 #FILEPATH="/home/lorenzo/pythonProjects/pythonMegaCourse_project1/todos.txt"
 def verify_if_exist_file(filepath=FILEPATH):
     if not os.path.exists(filepath):
@@ -16,7 +16,7 @@ def verify_if_exist_file(filepath=FILEPATH):
 
 #CUSTOM FUNCTION
 #utilizzo parametro di default
-def get_todos(filepath=FILEPATH):
+def get_items(filepath=FILEPATH):
     """
         Apro il file dentro <filepath>
         in modalità read e ritorno il contenuto
@@ -28,7 +28,7 @@ def get_todos(filepath=FILEPATH):
     return todos_local
 
 #N.B. se ci sono dei parametri senza default definito vanno messi all'inizio
-def write_todos(todos_arg,filepath=FILEPATH):
+def write_items(todos_arg,filepath=FILEPATH):
     """
         Apro il file dentro <filepath>
         in modalità write e ci scrivo dentro

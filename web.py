@@ -2,43 +2,37 @@ import streamlit as st
 import modules.functions as functions
 #il comando per fare run di una web app è: --> streamlit run /home/lorenzo/pythonProjects/webapp_1/web.py
 
-def add_todo():
-    todo = st.session_state["new_todo"] + "\n"
-    todos.append(todo)
-    functions.write_todos(todos)
+def add_item():
+    item = st.session_state["new_item"] + "\n"
+    items.append(item)
+    functions.write_items(items)
+
+
 #WIDGET
-st.title("Lista Attività")
-st.subheader("Lista di attività")
-st.text("\n Inserire qui sotto le attività da aggiungere."
-        "\n Facendo Check su un'attività la si considera completata e quindi si elimina")
+st.title("Lista Spesa")
+st.subheader("Lista di articoli")
+st.text("\n Inserire qui sotto gli articoli da comprare."
+        "\n Facendo Check su una cosa la si cancella")
 
-# VERIFICA SE ESISTE IL FILE todos_bkp.txt altrimenti lo crea
-verifica_todo= functions.verify_if_exist_file()
+verifica_item= functions.verify_if_exist_file()
 
-todos = functions.get_todos()
+items = functions.get_items()
 
-for todo_index,todo_value in enumerate(todos):
-    checkbox = st.checkbox(todo_value,key=todo_value)
+for item_index,item_value in enumerate(items):
+    checkbox = st.checkbox(item_value,key=item_value)
     if checkbox:
-        todos.pop(todo_index)
-        functions.write_todos(todos)
-        del st.session_state[todo_value]
+        items.pop(item_index)
+        functions.write_items(items)
+        del st.session_state[item_value]
         st._rerun()
 
-
-
-
-
-
-
-
-# VERIFICA SE ESISTE IL FILE todos_bkp.txt altrimenti lo crea
-verifica_todo= functions.verify_if_exist_file()
-print(verifica_todo)
+# VERIFICA SE ESISTE IL FILE items.txt altrimenti lo crea
+verifica_item= functions.verify_if_exist_file()
+print(verifica_item)
 
 st.text_input(label=""
               , placeholder="Add new todo.."
-              ,on_change=add_todo,key="new_todo")
+              ,on_change=add_item,key="new_item")
 
 
 print ("Hello")
