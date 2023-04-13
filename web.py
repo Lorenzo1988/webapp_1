@@ -9,7 +9,6 @@ def add_item():
     print(f"Ho dato ENTER sul nuovo item --> inserito item: {item}")
     item = ''
 
-
 #WIDGET
 st.title("Lista Spesa")
 st.subheader("Lista di articoli")
@@ -43,7 +42,7 @@ st.text_input(label="  "
 print ("Hello")
 
 st.subheader("Qui sotto posso vedere il st.session_state:")
-st.text("è una sorta di dizionario ottimizzato con tutte le coppie key:value della sessione in quel momento")
+st.text("è una sorta di dizionario ottimizzato con tutte le coppie \n key:value della sessione in quel momento")
 
 st.session_state
 
